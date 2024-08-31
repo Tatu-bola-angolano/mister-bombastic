@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -11,8 +11,9 @@
         <nav>
             <div class="container">
                 <h1>Portfólio de Daniel</h1>
-                <ul class="nav-links">
+                <ul class="nav-links" aria-label="Menu de navegação">
                     <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#experiencia">Experiência</a></li>
                     <li><a href="#projetos">Projetos</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
@@ -24,7 +25,16 @@
         <section id="sobre">
             <div class="container">
                 <h2>Sobre Mim</h2>
-                <p>Olá! Eu sou Daniel Torres de Carvalho, um programador apaixonado por pela área de programação. Com 2 meses de experiência em criação de site, estou sempre em busca de novos desafios e oportunidades para crescer profissionalmente.</p>
+                <p>Olá! Eu sou Daniel Torres de Carvalho, um um programador apaixonado por promação. Com 2 meses de experiência em promação, estou sempre em busca de novos desafios e oportunidades para crescer profissionalmente.</p>
+            </div>
+        </section>
+
+        <section id="experiencia">
+            <div class="container">
+                <h2>Experiência</h2>
+                <div class="experiencia-box">
+                    <!-- <p>Experiência: faço o curso TechInclução(em andamento ainda), curso de inglês básico, criação de site pelo Canva.</p> -->
+                </div>
             </div>
         </section>
 
@@ -33,11 +43,11 @@
                 <h2>Meus Projetos</h2>
                 <div class="projeto">
                     <h3>Projeto 1</h3>
-                    <p>Primeiro projeto: Olá mundo.</p>
+                    <p>Olá mundo.</p>
                 </div>
                 <div class="projeto">
                     <h3>Projeto 2</h3>
-                    <p>Segundo projeto:um site de comida no estilo do ste do iFood.</p>
+                    <p>Site de comida com um estilo semelhante ao do iFood.</p>
                 </div>
                 <!-- Adicione mais projetos conforme necessário -->
             </div>
@@ -46,18 +56,18 @@
         <section id="contato">
             <div class="container">
                 <h2>Contato</h2>
-                <form action="mailto:seuemail@example.com" method="post" enctype="text/plain">
+                <form action="mailto:seuemail@example.com" method="post" enctype="text/plain" aria-label="Formulário de contato">
                     <div class="form-group">
                         <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" required>
+                        <input type="text" id="nome" name="nome" required aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="mensagem">Mensagem:</label>
-                        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+                        <textarea id="mensagem" name="mensagem" rows="4" required aria-required="true"></textarea>
                     </div>
                     <button type="submit">Enviar</button>
                 </form>
@@ -67,8 +77,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Daniel Torres de Carvaljo. Todos os direitos reservados.</p>
+            <p>&copy; 2024 [Seu Nome]. Todos os direitos reservados.</p>
         </div>
     </footer>
 </body>
 </html>
+
+
+
