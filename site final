@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Menu Principal</title>
 	<style>
+		/* CSS mantido do código original */
+
 		body {
 			font-family: Arial, sans-serif;
 			margin: 0;
@@ -22,8 +24,9 @@
 			color: white;
 		}
 
-		.navbar-logo img {
-			height: 40px;
+		.navbar-logo h1 {
+			margin: 0;
+			font-size: 24px;
 		}
 
 		.navbar-menu {
@@ -161,237 +164,274 @@
 		.cart-item p {
 			margin: 0;
 		}
+
+		#no-results-message {
+			text-align: center;
+			font-size: 18px;
+			color: #E21C2B;
+			margin-top: 20px;
+		}
+
+		#no-results-message.hidden {
+			display: none;
+		}
 	</style>
 	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
 	<header>
 		<nav class="navbar">
 			<div class="navbar-logo">
-        <h1>Food Home<h1>
+				<h1>Food Home</h1>
+			</div>
+			<ul class="navbar-menu">
+				<li><a href="#" onclick="showSection('home')">Home</a></li>
+				<li><a href="#" onclick="showSection('restaurantes')">Restaurantes</a></li>
+				<li><a href="#" onclick="showSection('ajuda')">Ajuda</a></li>
+				<li><a href="#" onclick="showSection('carrinho')">Carrinho</a></li>
+			</ul>
+			<div class="search-container">
+				<input type="text" id="search-box" class="search-box" placeholder="Pesquisar produtos">
             </div>
-				<ul class="navbar-menu">
-					<li><a href="#" onclick="showSection('home')">Home</a></li>
-					<li><a href="#" onclick="showSection('restaurantes')">Restaurantes</a></li>
-					<li><a href="#" onclick="showSection('ajuda')">Ajuda</a></li>
-					<li><a href="#" onclick="showSection('carrinho')">Carrinho</a></li>
-				</ul>
-				<div class="search-container">
-					<input type="text" id="search-box" class="search-box" placeholder="Pesquisar produtos" onkeyup="searchProducts()">
-            </div>
-					<div class="navbar-icons">
-						<i class="fas fa-user"></i>
-						<i class="fas fa-shopping-cart" onclick="showSection('carrinho')"></i>
-					</div>
+				<div class="navbar-icons">
+					<i class="fas fa-user"></i>
+					<i class="fas fa-shopping-cart" onclick="showSection('carrinho')"></i>
+				</div>
 		</nav>
 	</header>
 
-	<div id="home" class="container">
-		<h1>Bem-vindo à Home</h1>
-		<p>Aqui você pode encontrar os melhores produtos e ofertas!</p>
-		<div class="product-grid" id="product-grid">
-			<!-- Produto 1 -->
-			<div class="product-card" data-name="Produto 1">
-				<div class="product-image">
-			<img src="https://s2-receitas.glbimg.com/4XTdUq68bYHt8KvRWQbYAImenTI=/0x0:1920x1080/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2022/a/6/sq7A9CTcyMvuXsFGLAFA/hamburguer-pgm1.png" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 924px; height: 170px; margin: 0px; width: 300px;" alt="Hambúrguer artesanal com cebola caramelizada" jsname="kn3ccd" aria-hidden="false">
-                </div>
-					<div class="product-info">
-						<h2 class="product-name">Triplo Hamburguéres</h2>
-						<p class="product-description">Combo de 3 Hamburguéres com bacon, carne e queijo.</p>
-						<p class="product-price">R$ 49,90</p>
-						<button class="add-to-cart" onclick="addToCart('Triplo Hamburguéres', 49.90)">Adicionar ao Carrinho</button>
-					</div>
-				</div>
-				<!-- Produto 2 -->
-				<div class="product-card" data-name="Batata frita">
+		<div id="home" class="container">
+			<h1>Bem-vindo à Home</h1>
+			<p>Aqui você pode encontrar os melhores produtos e ofertas!</p>
+			<div class="product-grid" id="product-grid">
+				<!-- Produto 1 -->
+				<div class="product-card" data-name="Produto 1">
 					<div class="product-image">
-            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/batata-frita-cheddar-bacon-parmes%C3%A3o.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 945px; width: 300px; height: 250px; margin: 0px;" alt="Batata frita com cheddar, bacon e parmesão" jsname="kn3ccd" aria-hidden="false">
-                </div>
+						<img src="https://s2-receitas.glbimg.com/4XTdUq68bYHt8KvRWQbYAImenTI=/0x0:1920x1080/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2022/a/6/sq7A9CTcyMvuXsFGLAFA/hamburguer-pgm1.png" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 924px; height: 170px; margin: 0px; width: 300px;" alt="Hambúrguer artesanal com cebola caramelizada" jsname="kn3ccd" aria-hidden="false">
+		                </div>
 						<div class="product-info">
-							<h2 class="product-name">Batata frita</h2>
-							<p class="product-description">Batata frita simples e croctante com queijo e pedaços de carne.</p>
-							<p class="product-price">R$ 29,90</p>
-							<button class="add-to-cart" onclick="addToCart('Batata frita', 29.90)">Adicionar ao Carrinho</button>
+							<h2 class="product-name">Triplo Hamburguéres</h2>
+							<p class="product-description">Combo de 3 Hamburguéres com bacon, carne e queijo.</p>
+							<p class="product-price">R$ 49,90</p>
+							<button class="add-to-cart" onclick="addToCart('Triplo Hamburguéres', 49.90)">Adicionar ao Carrinho</button>
 						</div>
 					</div>
-					<!-- Produto 3 -->
-<div class="product-card" data-name="Batata frita">
-	<div class="product-image">
-	<img src="https://loja.barracadoze.com.br/wp-content/uploads/2020/10/pastel-calabresa.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1280px; height: 207px; margin: 0px; width: 368px;" alt="Pastel de Calabresa com Queijo – Barraca do Zé" jsname="kn3ccd" aria-hidden="false">
-                </div>
-		<div class="product-info">
-			<h2 class="product-name">Pastel de Calabresa</h2>
-			<p class="product-description">Sushi tradicional japonês feito por um experiente chefe em culinaria.</p>
-			<p class="product-price">R$ 15,90</p>
-			<button class="add-to-cart" onclick="addToCart('Pastel de Calabresa', 15.90)">Adicionar ao Carrinho</button>
-		</div>
+					<!-- Produto 2 -->
+					<div class="product-card" data-name="Batata frita">
+						<div class="product-image">
+							<img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/batata-frita-cheddar-bacon-parmes%C3%A3o.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 945px; width: 300px; height: 250px; margin: 0px;" alt="Batata frita com cheddar, bacon e parmesão" jsname="kn3ccd" aria-hidden="false">
+		                </div>
+							<div class="product-info">
+								<h2 class="product-name">Batata frita</h2>
+								<p class="product-description">Batata frita simples e croctante com queijo e pedaços de
+									carne.</p>
+								<p class="product-price">R$ 29,90</p>
+								<button class="add-to-cart" onclick="addToCart('Batata frita', 29.90)">Adicionar ao Carrinho</button>
+							</div>
+						</div>
+						<!-- Produto 3 -->
+						<div class="product-card" data-name="Batata frita">
+							<div class="product-image">
+								<img src="https://loja.barracadoze.com.br/wp-content/uploads/2020/10/pastel-calabresa.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1280px; height: 207px; margin: 0px; width: 368px;" alt="Pastel de Calabresa com Queijo – Barraca do Zé" jsname="kn3ccd" aria-hidden="false">
+		                </div>
+								<div class="product-info">
+									<h2 class="product-name">Pastel de Calabresa</h2>
+									<p class="product-description">Sushi tradicional japonês feito por um experiente chefe
+										em culinaria.</p>
+									<p class="product-price">R$ 15,90</p>
+									<button class="add-to-cart" onclick="addToCart('Pastel de Calabresa', 15.90)">Adicionar ao Carrinho</button>
+								</div>
+							</div>
+		
+							<!-- Produto 3 -->
+							<div class="product-card" data-name="Batata frita">
+								<div class="product-image">
+									<img src="https://bonissima.com.br/web/image/product.template/39834/image_1024?unique=7792c1e" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 439px; height: 300px; margin: 0px; width: 300px;" alt="Mini Coxinha de Frango com Catupiry | Boníssima Raja" jsname="kn3ccd" aria-hidden="false">
+			                </div>
+									<div class="product-info">
+										<h2 class="product-name">Coxinhas de Frango</h2>
+										<p class="product-description">Combo de coxinha de frango.</p>
+										<p class="product-price">R$ 26,90</p>
+										<button class="add-to-cart" onclick="addToCart('Coxinhas de frango', 26.90)">Adicionar ao Carrinho</button>
+									</div>
+								</div>
+		
+								<!-- Produto 3 -->
+								<div class="product-card" data-name="Batata frita">
+									<div class="product-image">
+										<img src="https://pubimg.band.uol.com.br/files/b2191599c781fab1dc77.png" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 640px; height: 236px; margin: 0px; width: 351px;" alt="Enroladinho Assado de Salsicha | Band Receitas" jsname="kn3ccd" aria-hidden="false">
+				                </div>
+										<div class="product-info">
+											<h2 class="product-name">Enroladinho de salsicha</h2>
+											<p class="product-description">Enroladinhos de salsicha assados, caseiros e
+												feito com cuidado.</p>
+											<p class="product-price">R$ 22,90</p>
+											<button class="add-to-cart" onclick="addToCart('Enroladinho de salsicha', 22.90)">Adicionar ao Carrinho</button>
+										</div>
+									</div>
+		
+									<!-- Produto 3 -->
+									<div class="product-card" data-name="Batata frita">
+										<div class="product-image">
+											<img src="https://hotsite.infocoweb.com.br/storage/7421/Enroladinho-de-salsicha.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1229px; height: 195px; margin: 0px; width: 368px;" alt="Enroladinho de salsicha frito" jsname="kn3ccd" aria-hidden="false">
+				                </div>
+											<div class="product-info">
+												<h2 class="product-name">Enroladinho de salsicha frito</h2>
+												<p class="product-description">Mega combo de enroladinhos de salsicha frito,
+													feito para festas e eventos.</p>
+												<p class="product-price">R$ 34,90</p>
+												<button class="add-to-cart" onclick="addToCart('Enroladinho de salsicha frito', 34.90)">Adicionar ao Carrinho</button>
+											</div>
+										</div>
+		
+										<!-- Produto 3 -->
+										<div class="product-card" data-name="Batata frita">
+											<div class="product-image">
+												<img src="https://i.ytimg.com/vi/QFMxJWh3mqE/maxresdefault.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1280px; height: 207px; margin: 0px; width: 368px;" alt="BOLO DE CHOCOLATE RÁPIDO E FÁCIL | Massa FOFA e MOLHADINHA" jsname="kn3ccd" aria-hidden="false">
+				                </div>
+												<div class="product-info">
+													<h2 class="product-name">Fatia de bolo de chocolate</h2>
+													<p class="product-description">Fatia de bolo de chocalate suculento.</p>
+													<p class="product-price">R$ 6,90</p>
+													<button class="add-to-cart" onclick="addToCart('Fatia de bolo de chocolate', 6.90)">Adicionar ao Carrinho</button>
+												</div>
+											</div>
+		
+											<!-- Produto 3 -->
+											<div class="product-card" data-name="Batata frita">
+												<div class="product-image">
+													<img src="https://static.tvgazeta.com.br/uploads/2023/04/Surpreenda-na-sobremesa-com-esse-bolo-de-cenoura-vulcao-500x333.png" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 500px; height: 245px; margin: 0px; width: 298px;" alt="Surpreenda na sobremesa com esse bolo de cenoura vulcão" jsname="kn3ccd" aria-hidden="false">
+				                </div>
+													<div class="product-info">
+														<h2 class="product-name">Bolo de cenoura</h2>
+														<p class="product-description">Bolo de cenoura completo com
+															cobertura de chocolate.</p>
+														<p class="product-price">R$ 59,90</p>
+														<button class="add-to-cart" onclick="addToCart('Bolo de cenoura', 59.90)">Adicionar ao Carrinho</button>
+													</div>
+												</div>
+		
+												<!-- Produto 3 -->
+												<div class="product-card" data-name="Batata frita">
+													<div class="product-image">
+														<img src="https://p2.trrsf.com/image/fget/cf/1200/630/middle/images.terra.com/2024/01/14/527779572-vitamina-de-abacate.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1200px; height: 157px; margin: 0px; width: 299px;" alt="Vitamina de abacate diferente: aprenda a fazer a versão smoothie!" jsname="kn3ccd" aria-hidden="false">
+				                </div>
+														<div class="product-info">
+															<h2 class="product-name">Vitamina de abacate</h2>
+															<p class="product-description">Vitamina de abacate cremosa e
+																deliciosa.</p>
+															<p class="product-price">R$ 19,90</p>
+															<button class="add-to-cart" onclick="addToCart('Vitamina de abacate', 19.90)">Adicionar ao Carrinho</button>
+														</div>
+													</div>
+		
+													<!-- Produto 3 -->
+													<div class="product-card" data-name="Batata frita">
+														<div class="product-image">
+															<img src="https://blog.finamac.com/wp-content/uploads/2019/10/309956-como-oferecer-os-melhores-sabores-de-milkshake-para-os-clientes.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1200px; height: 245px; margin: 0px; width: 368px;" alt="Como oferecer os melhores sabores de milkshake para os clientes? - Blog  Finamac - Tudo sobre sorvete, picolé, gelato, açaí e chocolate" jsname="kn3ccd" aria-hidden="false">
+				                </div>
+															<div class="product-info">
+																<h2 class="product-name">Milkshake de chocolate</h2>
+																<p class="product-description">Milkshake de chocolate com
+																	cobertura sabor de brigadeiro.</p>
+																<p class="product-price">R$ 19,90</p>
+																<button class="add-to-cart" onclick="addToCart('Milkshake de chocolate', 19.90)">Adicionar ao Carrinho</button>
+															</div>
+														</div>
+														<!-- Adicione mais produtos aqui -->
+													</div>
+												</div>
+		<div id="no-results-message" class="hidden">Nenhum produto encontrado</div>
 	</div>
 
-	<!-- Produto 3 -->
-	<div class="product-card" data-name="Batata frita">
-		<div class="product-image">
-	<img src="https://bonissima.com.br/web/image/product.template/39834/image_1024?unique=7792c1e" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 439px; height: 300px; margin: 0px; width: 300px;" alt="Mini Coxinha de Frango com Catupiry | Boníssima Raja" jsname="kn3ccd" aria-hidden="false">
-	                </div>
-			<div class="product-info">
-				<h2 class="product-name">Coxinhas de Frango</h2>
-				<p class="product-description">Combo de coxinha de frango.</p>
-				<p class="product-price">R$ 26,90</p>
-				<button class="add-to-cart" onclick="addToCart('Coxinhas de frango', 26.90)">Adicionar ao Carrinho</button>
-			</div>
+	<div id="restaurantes" class="container hidden">
+		<h1>Restaurantes</h1>
+		<p>Lista de Restaurantes disponíveis.</p>
+	</div>
+
+	<div id="ajuda" class="container hidden">
+		<h1>Ajuda</h1>
+		<p>Se você precisar de ajuda, entre em contato conosco.</p>
+	</div>
+
+	<div id="carrinho" class="container hidden">
+		<h1>Carrinho</h1>
+		<div id="cart-items">
+			<!-- Itens do Carrinho serão inseridos aqui -->
 		</div>
+		<p id="total-price">Total: R$ 0.00</p>
+		<button onclick="checkout()">Finalizar Compra</button>
+	</div>
 
-		<!-- Produto 3 -->
-		<div class="product-card" data-name="Batata frita">
-			<div class="product-image">
-		<img src="https://pubimg.band.uol.com.br/files/b2191599c781fab1dc77.png" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 640px; height: 236px; margin: 0px; width: 351px;" alt="Enroladinho Assado de Salsicha | Band Receitas" jsname="kn3ccd" aria-hidden="false">
-		                </div>
-				<div class="product-info">
-					<h2 class="product-name">Enroladinho de salsicha</h2>
-					<p class="product-description">Enroladinhos de salsicha assados, caseiros e feito com cuidado.</p>
-					<p class="product-price">R$ 22,90</p>
-					<button class="add-to-cart" onclick="addToCart('Enroladinho de salsicha', 22.90)">Adicionar ao Carrinho</button>
-				</div>
-			</div>
-
-		<!-- Produto 3 -->
-		<div class="product-card" data-name="Batata frita">
-			<div class="product-image">
-		<img src="https://hotsite.infocoweb.com.br/storage/7421/Enroladinho-de-salsicha.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1229px; height: 195px; margin: 0px; width: 368px;" alt="Enroladinho de salsicha frito" jsname="kn3ccd" aria-hidden="false">
-		                </div>
-				<div class="product-info">
-					<h2 class="product-name">Enroladinho de salsicha frito</h2>
-					<p class="product-description">Mega combo de enroladinhos de salsicha frito, feito para festas e eventos.</p>
-					<p class="product-price">R$ 34,90</p>
-					<button class="add-to-cart" onclick="addToCart('Enroladinho de salsicha frito', 34.90)">Adicionar ao Carrinho</button>
-				</div>
-			</div>
-
-		<!-- Produto 3 -->
-		<div class="product-card" data-name="Batata frita">
-			<div class="product-image">
-		<img src="https://i.ytimg.com/vi/QFMxJWh3mqE/maxresdefault.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1280px; height: 207px; margin: 0px; width: 368px;" alt="BOLO DE CHOCOLATE RÁPIDO E FÁCIL | Massa FOFA e MOLHADINHA" jsname="kn3ccd" aria-hidden="false">
-		                </div>
-				<div class="product-info">
-					<h2 class="product-name">Fatia de bolo de chocolate</h2>
-					<p class="product-description">Fatia de bolo de chocalate suculento.</p>
-					<p class="product-price">R$ 6,90</p>
-					<button class="add-to-cart" onclick="addToCart('Fatia de bolo de chocolate', 6.90)">Adicionar ao Carrinho</button>
-				</div>
-			</div>
-       
-		<!-- Produto 3 -->
-		<div class="product-card" data-name="Batata frita">
-			<div class="product-image">
-		<img src="https://static.tvgazeta.com.br/uploads/2023/04/Surpreenda-na-sobremesa-com-esse-bolo-de-cenoura-vulcao-500x333.png" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 500px; height: 245px; margin: 0px; width: 298px;" alt="Surpreenda na sobremesa com esse bolo de cenoura vulcão" jsname="kn3ccd" aria-hidden="false">
-		                </div>
-				<div class="product-info">
-					<h2 class="product-name">Bolo de cenoura</h2>
-					<p class="product-description">Bolo de cenoura completo com cobertura de chocolate.</p>
-					<p class="product-price">R$ 59,90</p>
-					<button class="add-to-cart" onclick="addToCart('Bolo de cenoura', 59.90)">Adicionar ao Carrinho</button>
-				</div>
-			</div>
-          
-		<!-- Produto 3 -->
-		<div class="product-card" data-name="Batata frita">
-			<div class="product-image">
-		<img src="https://p2.trrsf.com/image/fget/cf/1200/630/middle/images.terra.com/2024/01/14/527779572-vitamina-de-abacate.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1200px; height: 157px; margin: 0px; width: 299px;" alt="Vitamina de abacate diferente: aprenda a fazer a versão smoothie!" jsname="kn3ccd" aria-hidden="false">
-		                </div>
-				<div class="product-info">
-					<h2 class="product-name">Vitamina de abacate</h2>
-					<p class="product-description">Vitamina de abacate cremosa e deliciosa.</p>
-					<p class="product-price">R$ 19,90</p>
-					<button class="add-to-cart" onclick="addToCart('Vitamina de abacate', 19.90)">Adicionar ao Carrinho</button>
-				</div>
-			</div>
-
-		<!-- Produto 3 -->
-		<div class="product-card" data-name="Batata frita">
-			<div class="product-image">
-		<img src="https://blog.finamac.com/wp-content/uploads/2019/10/309956-como-oferecer-os-melhores-sabores-de-milkshake-para-os-clientes.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1200px; height: 245px; margin: 0px; width: 368px;" alt="Como oferecer os melhores sabores de milkshake para os clientes? - Blog  Finamac - Tudo sobre sorvete, picolé, gelato, açaí e chocolate" jsname="kn3ccd" aria-hidden="false">
-		                </div>
-				<div class="product-info">
-					<h2 class="product-name">Milkshake de chocolate</h2>
-					<p class="product-description">Milkshake de chocolate com cobertura sabor de brigadeiro.</p>
-					<p class="product-price">R$ 19,90</p>
-					<button class="add-to-cart" onclick="addToCart('Milkshake de chocolate', 19.90)">Adicionar ao Carrinho</button>
-				</div>
-			</div>
-						<!-- Adicione mais produtos aqui -->
-					</div>
-				</div>
-
-				<div id="restaurantes" class="container hidden">
-					<h1>Restaurantes</h1>
-					<p>Veja os melhores restaurantes disponíveis na sua região.</p>
-				</div>
-
-				<div id="ajuda" class="container hidden">
-					<h1>Ajuda</h1>
-					<p>Como podemos te ajudar? Confira as perguntas frequentes ou entre em contato.</p>
-				</div>
-
-				<div id="carrinho" class="container hidden">
-					<h1>Carrinho</h1>
-					<div id="cart-items">
-						<!-- Items do carrinho serão exibidos aqui -->
-					</div>
-				</div>
-
-				<script>
-					let cart = [];
-
-        function showSection(sectionId) {
+	<script>
+		// Função para mostrar seções
+        function showSection(id) {
             const sections = document.querySelectorAll('.container');
             sections.forEach(section => {
                 section.classList.add('hidden');
             });
-            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(id).classList.remove('hidden');
         }
 
-        function addToCart(productName, productPrice) {
-            const product = { name: productName, price: productPrice };
-            cart.push(product);
-            updateCart();
-        }
+        // Função para pesquisa com debounce
+        let debounceTimer;
+        document.getElementById('search-box').addEventListener('keyup', function() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(searchProducts, 300);
+        });
 
-        function updateCart() {
-            const cartItemsDiv = document.getElementById('cart-items');
-            cartItemsDiv.innerHTML = '';
-
-            if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<p>Seu carrinho está vazio.</p>';
-                return;
-            }
-
-            cart.forEach(item => {
-                const cartItemDiv = document.createElement('div');
-                cartItemDiv.className = 'cart-item';
-                cartItemDiv.innerHTML = `
-                    <p>${item.name}</p>
-                    <p>R$ ${item.price.toFixed(2)}</p>
-                `;
-                cartItemsDiv.appendChild(cartItemDiv);
-            });
-        }
-
+        // Função de pesquisa de produtos
         function searchProducts() {
-            const searchTerm = document.getElementById('search-box').value.toLowerCase();
+            const searchBox = document.getElementById('search-box');
+            const filter = searchBox.value.toLowerCase();
             const productCards = document.querySelectorAll('.product-card');
-            
+            let hasVisibleProduct = false;
+
             productCards.forEach(card => {
                 const productName = card.getAttribute('data-name').toLowerCase();
-                if (productName.includes(searchTerm)) {
-                    card.style.display = 'block';
+                if (productName.includes(filter)) {
+                    card.style.display = '';
+                    hasVisibleProduct = true;
                 } else {
                     card.style.display = 'none';
                 }
             });
-        }
-				</script>
 
+            document.getElementById('no-results-message').classList.toggle('hidden', hasVisibleProduct);
+        }
+
+        // Função para adicionar ao carrinho
+        const cart = [];
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        // Função para atualizar o carrinho
+        function updateCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            let totalPrice = 0;
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `<p>${item.name}</p><p>R$ ${item.price.toFixed(2)}</p>`;
+                cartItemsContainer.appendChild(cartItem);
+                totalPrice += item.price;
+            });
+
+            document.getElementById('total-price').textContent = `Total: R$ ${totalPrice.toFixed(2)}`;
+        }
+
+        // Função para finalizar a compra
+        function checkout() {
+            alert('Compra finalizada!');
+            cart.length = 0;
+            updateCart();
+        }
+	</script>
 </body>
 
 </html>
