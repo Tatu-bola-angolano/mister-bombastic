@@ -363,6 +363,10 @@
 		<p id="total-price">Total: R$ 0.00</p>
 		<button onclick="checkout()">Finalizar Compra</button>
 	</div>
+</section>
+<h1><a href="https://portal.ifood.com.br/login">patrocinador-restaurante</a>
+	</section>
+
 
 	<script>
 		// Função para mostrar seções
